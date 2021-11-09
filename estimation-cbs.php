@@ -2,7 +2,7 @@
 /*
 Plugin Name: Estimación de proyectos
 Plugin URI: www.codeberrysolutions.com
-Description: Estimación automática de proyectos para utilizar por nuevos clientes que acceden a la web de  Codeberry Solutions.
+Description: Estimación automática de proyectos para utilizar por nuevos clientes que acceden a la web de  Codeberry Solutions. puede usar el sortcode [estimate_form] para mostrar el formulario.
 Version:1.0.0
 Author:Codeberry Solutions
 Author URI:www.codeberrysolutions.com
@@ -19,10 +19,10 @@ class EstimationCbsApi {
 	public const END_POINT = 'estimations/';
 
 	static function style( $prefix ,$admin=false) {
-		wp_register_script( $prefix . 'cbs-js_bootstrap', plugins_url( 'estimation-cbs/admin/js/bootstrap.min.js' ) );
+		wp_register_script( $prefix . 'cbs-js_bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js');
 		wp_enqueue_script( 'jquery' );
 		wp_enqueue_script( $prefix . 'cbs-js_bootstrap' );
-		wp_register_style( $prefix . 'cbs_bootstrap', plugins_url( 'estimation-cbs/admin/css/bootstrap.min.css' ) );
+		wp_register_style( $prefix . 'cbs_bootstrap','https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css');
 		wp_enqueue_style( $prefix . 'cbs_bootstrap' );
 		if($admin){
 			wp_register_style( $prefix . 'cbs_style', plugins_url( 'estimation-cbs/admin/css/style.css' ) );
@@ -162,7 +162,7 @@ add_action( 'admin_menu', 'estimation_admin_page' );
 function estimation_admin_page() {
 	add_menu_page(
 		'Estimations',
-		'Estimations forms',
+		'Projects estimated',
 		'manage_options',
 		plugin_dir_path( __FILE__ ) . 'admin/view.php',
 		null,
@@ -219,13 +219,13 @@ function estimateForm() {
                     <div class="col-md-12"><p>In wich plataform(s) can users access the app?</p></div>
                     <div class="form-group group-flex">
                         <input id="estimate-form" type="hidden" name="estimate-form" value="estimate_form_frontend"/>
-                        <input id="check_platform_ios" type="checkbox" class="visually-hidden plataform"
+                        <input id="check_platform_ios" type="checkbox" hidden class=" plataform"
                                name="platform_ios"/>
                         <a id="platform_ios" class="btn estimate-button" family="plataform-any">iOS</a>
-                        <input id="check_platform_android" type="checkbox" class="visually-hidden plataform"
+                        <input id="check_platform_android" type="checkbox" hidden class=" plataform"
                                name="platform_android"/>
                         <a id="platform_android" class="btn estimate-button" family="plataform-any">Android</a>
-                        <input id="check_platform_web" type="checkbox" class="visually-hidden plataform"
+                        <input id="check_platform_web" type="checkbox" hidden class=" plataform"
                                name="platform_web"/>
                         <a id="platform_web" class="btn estimate-button" family="plataform-any">Web</a>
                     </div>
@@ -236,13 +236,13 @@ function estimateForm() {
                     <div class="col-md-12"><p>Do users need to register?<span style="color:red;">*</span></p></div>
                     <div class="form-group group-flex">
                         <input id="check_user_registration_yes" type="checkbox"
-                               class="visually-hidden user_registration" name="user_registration_yes"/>
+                               hidden class=" user_registration" name="user_registration_yes"/>
                         <a id="user_registration_yes" class="btn estimate-button" family="user_registration-one">Yes</a>
-                        <input id="check_user_registration_no" type="checkbox" class="visually-hidden user_registration"
+                        <input id="check_user_registration_no" type="checkbox" hidden class=" user_registration"
                                name="user_registration_no"/>
                         <a id="user_registration_no" class="btn estimate-button" family="user_registration-one">No</a>
                         <input id="check_user_registration_not_sure" type="checkbox"
-                               class="visually-hidden user_registration" name="user_registration_not_sure"/>
+                               hidden class=" user_registration" name="user_registration_not_sure"/>
                         <a id="user_registration_not_sure" class="btn estimate-button" family="user_registration-one">Not
                             sure</a>
                     </div>
@@ -253,23 +253,23 @@ function estimateForm() {
                     <div class="col-md-12"><p>Will users be creating content?</p></div>
                     <div class="form-group group-flex">
                         <input id="check_user_content_user_profile" type="checkbox"
-                               class="visually-hidden user_generated_content" name="user_content_user_profile"/>
+                               hidden class=" user_generated_content" name="user_content_user_profile"/>
                         <a id="user_content_user_profile" class="btn estimate-button"
                            family="user_generated_content-any">User profile</a>
                         <input id="check_user_content_upload_media" type="checkbox"
-                               class="visually-hidden user_generated_content" name="user_content_upload_media"/>
+                               hidden class=" user_generated_content" name="user_content_upload_media"/>
                         <a id="user_content_upload_media" class="btn estimate-button"
                            family="user_generated_content-any">Upload media (images, audio, video)</a>
                         <input id="check_user_content_ratings" type="checkbox"
-                               class="visually-hidden user_generated_content" name="user_content_ratings"/>
+                               hidden class=" user_generated_content" name="user_content_ratings"/>
                         <a id="user_content_ratings" class="btn estimate-button" family="user_generated_content-any">Ratings
                             & reviews</a>
                         <input id="check_user_content_save_favorites" type="checkbox"
-                               class="visually-hidden user_generated_content" name="user_content_save_favorites"/>
+                               hidden class=" user_generated_content" name="user_content_save_favorites"/>
                         <a id="user_content_save_favorites" class="btn estimate-button"
                            family="user_generated_content-any">Save favorites</a>
                         <input id="check_user_content_marketplace" type="checkbox"
-                               class="visually-hidden user_generated_content" name="user_content_marketplace"/>
+                               hidden class=" user_generated_content" name="user_content_marketplace"/>
                         <a id="user_content_marketplace" class="btn estimate-button"
                            family="user_generated_content-any">User Marketplace</a>
                     </div>
@@ -279,17 +279,17 @@ function estimateForm() {
                 <div class="col-md-12">
                     <div class="col-md-12"><p>Does the app include community or engagement features?</p></div>
                     <div class="form-group group-flex">
-                        <input id="check_community_chat" type="checkbox" class="visually-hidden community"
+                        <input id="check_community_chat" type="checkbox" hidden class=" community"
                                name="community_chat"/>
                         <a id="community_chat" class="btn estimate-button" family="community-any">Chat system</a>
-                        <input id="check_community_forums" type="checkbox" class="visually-hidden community"
+                        <input id="check_community_forums" type="checkbox" hidden class=" community"
                                name="community_forums"/>
                         <a id="community_forums" class="btn estimate-button" family="community-any">Forum</a>
-                        <input id="check_community_social_sharing" type="checkbox" class="visually-hidden community"
+                        <input id="check_community_social_sharing" type="checkbox" hidden class=" community"
                                name="community_social_sharing"/>
                         <a id="community_social_sharing" class="btn estimate-button" family="community-any">Social
                             sharing</a>
-                        <input id="check_community_push" type="checkbox" class="visually-hidden community"
+                        <input id="check_community_push" type="checkbox" hidden class=" community"
                                name="community_push"/>
                         <a id="community_push" class="btn estimate-button" family="community-any">Push notifications</a>
                     </div>
@@ -299,22 +299,22 @@ function estimateForm() {
                 <div class="col-md-12">
                     <div class="col-md-12"><p>Does the app include any of the following utilities?</p></div>
                     <div class="form-group group-flex">
-                        <input id="check_utilities_free_text_search" type="checkbox" class="visually-hidden utilities"
+                        <input id="check_utilities_free_text_search" type="checkbox" hidden class=" utilities"
                                name="utilities_free_text_search"/>
                         <a id="utilities_free_text_search" class="btn estimate-button" family="utilities-any">Free-text
                             search</a>
-                        <input id="check_utilities_geolocation" type="checkbox" class="visually-hidden utilities"
+                        <input id="check_utilities_geolocation" type="checkbox" hidden class=" utilities"
                                name="utilities_geolocation"/>
                         <a id="utilities_geolocation" class="btn estimate-button" family="utilities-any">Geolocation</a>
-                        <input id="check_utilities_custom_location" type="checkbox" class="visually-hidden utilities"
+                        <input id="check_utilities_custom_location" type="checkbox" hidden class=" utilities"
                                name="utilities_custom_location"/>
                         <a id="utilities_custom_location" class="btn estimate-button" family="utilities-any">Add custom
                             locations to the map</a>
-                        <input id="check_utilities_calendar_events" type="checkbox" class="visually-hidden utilities"
+                        <input id="check_utilities_calendar_events" type="checkbox" hidden class=" utilities"
                                name="utilities_calendar_events"/>
                         <a id="utilities_calendar_events" class="btn estimate-button" family="utilities-any">Calendar /
                             Events</a>
-                        <input id="check_utilities_offline_mode" type="checkbox" class="visually-hidden utilities"
+                        <input id="check_utilities_offline_mode" type="checkbox" hidden class=" utilities"
                                name="utilities_offline_mode"/>
                         <a id="utilities_offline_mode" class="btn estimate-button" family="utilities-any">Offline
                             mode</a>
@@ -325,18 +325,18 @@ function estimateForm() {
                 <div class="col-md-12">
                     <div class="col-md-12"><p>What type of payment do you need?</p></div>
                     <div class="form-group group-flex">
-                        <input id="check_monetization_advertising" type="checkbox" class="visually-hidden monetization"
+                        <input id="check_monetization_advertising" type="checkbox" hidden class=" monetization"
                                name="monetization_advertising"/>
                         <a id="monetization_advertising" class="btn estimate-button" family="monetization-any">Advertising</a>
                         <input id="check_monetization_in_app_payment" type="checkbox"
-                               class="visually-hidden monetization" name="monetization_in_app_payment"/>
+                               hidden class=" monetization" name="monetization_in_app_payment"/>
                         <a id="monetization_in_app_payment" class="btn estimate-button" family="monetization-any">In app
                             payments</a>
                         <input id="check_monetization_subscriptions" type="checkbox"
-                               class="visually-hidden monetization" name="monetization_subscriptions"/>
+                               hidden class=" monetization" name="monetization_subscriptions"/>
                         <a id="monetization_subscriptions" class="btn estimate-button" family="monetization-any">Subscriptions</a>
                         <input id="check_monetization_freemium_content" type="checkbox"
-                               class="visually-hidden monetization" name="monetization_freemium_content"/>
+                               hidden class=" monetization" name="monetization_freemium_content"/>
                         <a id="monetization_freemium_content" class="btn estimate-button" family="monetization-any">Premium content</a>
                     </div>
                     <hr class="col-12" style="margin-top: 10px;margin-bottom:10px">
@@ -345,19 +345,19 @@ function estimateForm() {
                 <div class="col-md-12">
                     <div class="col-md-12"><p>What type of integration do you need?<span style="color:red;">*</span></p></div>
                     <div class="form-group group-flex">
-                        <input id="check_integrations_internal" type="checkbox" class="visually-hidden integrations"
+                        <input id="check_integrations_internal" type="checkbox" hidden class=" integrations"
                                name="integrations_internal"/>
                         <a id="integrations_internal" class="btn estimate-button" family="integrations-one">Internal</a>
-                        <input id="check_integrations_external" type="checkbox" class="visually-hidden integrations"
+                        <input id="check_integrations_external" type="checkbox" hidden class=" integrations"
                                name="integrations_external"/>
                         <a id="integrations_external" class="btn estimate-button" family="integrations-one">External</a>
-                        <input id="check_integrations_both" type="checkbox" class="visually-hidden integrations"
+                        <input id="check_integrations_both" type="checkbox" hidden class=" integrations"
                                name="integrations_both"/>
                         <a id="integrations_both" class="btn estimate-button" family="integrations-one">Both</a>
-                        <input id="check_integrations_neither" type="checkbox" class="visually-hidden integrations"
+                        <input id="check_integrations_neither" type="checkbox" hidden class=" integrations"
                                name="integrations_neither"/>
                         <a id="integrations_neither" class="btn estimate-button" family="integrations-one">Neither</a>
-                        <input id="check_integrations_not_sure" type="checkbox" class="visually-hidden integrations"
+                        <input id="check_integrations_not_sure" type="checkbox" hidden class=" integrations"
                                name="integrations_not_sure"/>
                         <a id="integrations_not_sure" class="btn estimate-button" family="integrations-one">Not sure</a>
                     </div>
@@ -367,21 +367,21 @@ function estimateForm() {
                 <div class="col-md-12">
                     <div class="col-md-12"><p>What type of administrative control do you need?</p></div>
                     <div class="form-group group-flex">
-                        <input id="check_administration_cms" type="checkbox" class="visually-hidden administration"
+                        <input id="check_administration_cms" type="checkbox" hidden class=" administration"
                                name="administration_cms"/>
                         <a id="administration_cms" class="btn estimate-button" family="administration-any">Content
                             Management System</a>
                         <input id="check_administration_user_management" type="checkbox"
-                               class="visually-hidden administration"
+                               hidden class=" administration"
                                name="administration_user_management admin control"/>
                         <a id="administration_user_management" class="btn estimate-button" family="administration-any">User
                             Management</a>
                         <input id="check_administration_moderate_content" type="checkbox"
-                               class="visually-hidden administration" name="administration_moderate_content"/>
+                               hidden class=" administration" name="administration_moderate_content"/>
                         <a id="administration_moderate_content" class="btn estimate-button" family="administration-any">Moderate
                             User Content</a>
                         <input id="check_administration_analytic_suite" type="checkbox"
-                               class="visually-hidden administration" name="administration_analytic_suite"/>
+                               hidden class=" administration" name="administration_analytic_suite"/>
                         <a id="administration_analytic_suite" class="btn estimate-button" family="administration-any">Analytics
                             Suite</a>
                     </div>
@@ -391,13 +391,13 @@ function estimateForm() {
                 <div class="col-md-12">
                     <div class="col-md-12"><p>What type of security do you need?<span style="color:red;">*</span></p></div>
                     <div class="form-group group-flex">
-                        <input id="check_security_basic" type="checkbox" class="visually-hidden security"
+                        <input id="check_security_basic" type="checkbox" hidden class=" security"
                                name="security_basic"/>
                         <a id="security_basic" class="btn estimate-button" family="security-one">Basic</a>
-                        <input id="check_security_encrypted" type="checkbox" class="visually-hidden security"
+                        <input id="check_security_encrypted" type="checkbox" hidden class=" security"
                                name="security_encrypted"/>
                         <a id="security_encrypted" class="btn estimate-button" family="security-one">Encrypted</a>
-                        <input id="check_security_not_sure" type="checkbox" class="visually-hidden security"
+                        <input id="check_security_not_sure" type="checkbox" hidden class=" security"
                                name="security_not_sure"/>
                         <a id="security_not_sure" class="btn estimate-button" family="security-one">Not sure</a>
                     </div>
@@ -407,12 +407,12 @@ function estimateForm() {
                 <div class="col-md-12">
                     <div class="col-md-12"><p>How should the UI look?<span style="color:red;">*</span></p></div>
                     <div class="form-group group-flex">
-                        <input id="check_ui_bare_bones" type="checkbox" class="visually-hidden ui"
+                        <input id="check_ui_bare_bones" type="checkbox" hidden class=" ui"
                                name="ui_bare_bones"/>
                         <a id="ui_bare_bones" class="btn estimate-button" family="ui-one">Bare bonds</a>
-                        <input id="check_ui_standard" type="checkbox" class="visually-hidden ui" name="ui_standard"/>
+                        <input id="check_ui_standard" type="checkbox" hidden class=" ui" name="ui_standard"/>
                         <a id="ui_standard" class="btn estimate-button" family="ui-one">Standard</a>
-                        <input id="check_ui_beautiful" type="checkbox" class="visually-hidden ui" name="ui_beautiful"/>
+                        <input id="check_ui_beautiful" type="checkbox" hidden class=" ui" name="ui_beautiful"/>
                         <a id="ui_beautiful" class="btn estimate-button" family="ui-one">Beautiful</a>
                     </div>
                     <hr class="col-12" style="margin-top: 10px;margin-bottom:10px">
@@ -421,18 +421,18 @@ function estimateForm() {
                 <div class="col-md-12">
                     <div class="col-md-12"><p>How many pages will the app contain?<span style="color:red;">*</span></p></div>
                     <div class="form-group group-flex">
-                        <input id="check_number_of_pages_less_10" type="checkbox" class="visually-hidden number_of_page"
+                        <input id="check_number_of_pages_less_10" type="checkbox" hidden class=" number_of_page"
                                name="number_of_pages_less_10"/>
                         <a id="number_of_pages_less_10" class="btn estimate-button" family="number_of_page-one"><10</a>
-                        <input id="check_number_of_pages_10_30" type="checkbox" class="visually-hidden number_of_page"
+                        <input id="check_number_of_pages_10_30" type="checkbox" hidden class=" number_of_page"
                                name="number_of_pages_10_30"/>
                         <a id="number_of_pages_10_30" class="btn estimate-button" family="number_of_page-one">Between
                             10-30</a>
-                        <input id="check_number_of_pages_30_100" type="checkbox" class="visually-hidden number_of_page"
+                        <input id="check_number_of_pages_30_100" type="checkbox" hidden class=" number_of_page"
                                name="number_of_pages_30_100"/>
                         <a id="number_of_pages_30_100" class="btn estimate-button" family="number_of_page-one">Between
                             30-100</a>
-                        <input id="check_number_of_pages_100" type="checkbox" class="visually-hidden number_of_page"
+                        <input id="check_number_of_pages_100" type="checkbox" hidden class=" number_of_page"
                                name="number_of_pages_100"/>
                         <a id="number_of_pages_100" class="btn estimate-button" family="number_of_page-one">100+</a>
                     </div>
@@ -442,11 +442,11 @@ function estimateForm() {
                 <div class="col-md-12">
                     <div class="col-md-12"><p>Should the app be available in multiple languages?<span style="color:red;">*</span></p></div>
                     <div class="form-group group-flex">
-                        <input id="check_lang_1" type="checkbox" class="visually-hidden languages" name="lang_1"/>
+                        <input id="check_lang_1" type="checkbox" hidden class=" languages" name="lang_1"/>
                         <a id="lang_1" class="btn estimate-button" family="languages-one">1 language</a>
-                        <input id="check_lang_2" type="checkbox" class="visually-hidden languages" name="lang_2"/>
+                        <input id="check_lang_2" type="checkbox" hidden class=" languages" name="lang_2"/>
                         <a id="lang_2" class="btn estimate-button" family="languages-one">2 languages</a>
-                        <input id="check_lang_3_more" type="checkbox" class="visually-hidden languages"
+                        <input id="check_lang_3_more" type="checkbox" hidden class=" languages"
                                name="lang_3_more"/>
                         <a id="lang_3_more" class="btn estimate-button" family="languages-one">3+ languages</a>
                     </div>

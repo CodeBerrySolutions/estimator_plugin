@@ -1,5 +1,5 @@
 jQuery(document).ready(function ($) {
-    $('.close').on('click', function (event) {
+    $('.close-btn').on('click', function (event) {
         $('#myModal').modal('hide');
     })
 
@@ -103,7 +103,7 @@ jQuery(document).ready(function ($) {
                     }else{
                         lang = "<span style='color: green'>More 3</span>"
                     }
-                    $('.modal-title').html("<h4>Form: " + data.client_name + "</h4>")
+                    $('.modal-title').html("<h4>Form: " + data.client_name +" "+data.client_last_name+"</h4>")
 
                     $('.modal-body').html(
                         "<p>IOS: " + platform_ios + " | Android: " + platform_android +" | Web: " + platform_web + "</p>" +

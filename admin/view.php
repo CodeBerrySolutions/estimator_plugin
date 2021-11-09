@@ -29,7 +29,9 @@ $pagelist = $p->pageList( $_GET['pager'], $pages );
 
 
 ?>
-
+<div class="col-md-12">
+    <h1>Projects estimated:</h1>
+</div>
     <div class="col-md-12 text-center">
         <table class="table">
             <thead>
@@ -87,13 +89,13 @@ $pagelist = $p->pageList( $_GET['pager'], $pages );
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">View Form</h4>
+                    <h4 class="modal-title">Loading...</h4>
                 </div>
                 <div class="modal-body text-center">
-                    <p>Some text in the modal.</p>
+                    <p>Loading...</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-success close" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success close-btn" data-dismiss="modal">Close</button>
                 </div>
             </div>
 

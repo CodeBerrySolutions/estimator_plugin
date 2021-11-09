@@ -23,7 +23,8 @@ hr {
 }
 
 .client{
-    border-color: #d42043 !important;
+    border: 1px solid #d42043 !important;
+    border-radius: 0.25rem !important;
 }
 .client:focus{
     border-color: #d42043 !important;
