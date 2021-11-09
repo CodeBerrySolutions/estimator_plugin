@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="2a617e77-d917-43c6-a2c9-98b2f62b10df" name="estimation.local">
+        <fileTransfer rootFolder="/var/www/html/estimacion/wp-content/plugins/estimation-cbs" accessType="SFTP" host="ebook.local" port="22" sshConfigId="ba04e85c-3ba7-4a1e-939c-b9a8f12de9b1" sshConfig="carlos@ebook.local:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

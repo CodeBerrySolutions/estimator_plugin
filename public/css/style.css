@@ -1,0 +1,107 @@
+h1,h2,h3,h4,h5,h6 {
+    color: #040444;
+}
+h1::before,h2::before,h3::before,h4::before,h5::before,h6::before {
+    content: none !important;
+}
+.btn {
+    text-decoration: none !important;
+}
+.group-flex{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+hr {
+    height:2px;
+    border-width:0;
+    color:#040444;
+    background-color:#040444;
+}
+.estimate-text{
+    color: black;
+}
+
+.client{
+    border-color: #d42043 !important;
+}
+.client:focus{
+    border-color: #d42043 !important;
+    box-shadow: 0 0 0 0.25rem #ef9a9a !important;
+}
+
+
+.estimate-button {
+    color: grey !important;
+    border-radius: 6px;
+    font-size: 14px !important;
+    border: 1px #D42043 solid !important;
+    background-color: white !important;
+    padding: 0.7rem !important;
+    min-width: 100px;
+    font-weight: bold;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-top: 0.5rem;
+
+}
+
+.estimate-button-submit{
+    max-width: 4rem;
+    color: grey !important;
+    border-radius: 6px;
+    font-size: 14px !important;
+    border: 1px #D42043 solid !important;
+    background-color: white !important;
+    padding: 0.7rem !important;
+    min-width: 100px;
+    font-weight: bold;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-top: 0.5rem;
+}
+.estimate-button-return{
+    max-width: 4rem;
+    color: grey !important;
+    border-radius: 6px;
+    font-size: 14px !important;
+    border: 1px green solid !important;
+    background-color: white !important;
+    padding: 0.7rem !important;
+    min-width: 100px;
+    font-weight: bold;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-top: 0.5rem;
+}
+.estimate-button.active {
+    color: #040444 !important;
+    background-image: linear-gradient(#D42043,white) !important;
+}
+.estimate-button:hover {
+    color: #040444 !important;
+    background-image: linear-gradient(#D42043,white);
+}
+
+.estimate-button-submit.active {
+    color: #040444 !important;
+    background-image: linear-gradient(#D42043,white) !important;
+}
+.estimate-button-submit:hover {
+    color: #040444 !important;
+    background-image: linear-gradient(#D42043,white);
+}
+.estimate-button-return.active {
+    color: #040444 !important;
+    background-image: linear-gradient(green,white) !important;
+}
+.estimate-button-return:hover {
+    color: #040444 !important;
+    background-image: linear-gradient(green,white);
+}
+
+.card-head{
+    BACKGROUND-COLOR: green;
+    padding: 3rem;
+    text-align: center;
+}
