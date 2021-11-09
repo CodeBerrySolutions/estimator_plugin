@@ -8,12 +8,9 @@ jQuery(document).ready(function ($) {
 
         let str_id = element.attr('id');
         let id = str_id.split('-')[1];
-        console.log(id)
 
         if (id) {
             $.get("https://api.codeberrysolutions.com/estimations/" + id, (data, status) => {
-                console.log(data)
-                console.log(status)
                 //alert("Data: " + data + "\nStatus: " + status);
                 if (status === 'success') {
                     let platform_ios = data.platform_ios? "<span style='color: green'>Yes</span>":"<span style='color: red'>No</span>"
@@ -106,8 +103,6 @@ jQuery(document).ready(function ($) {
                     }else{
                         lang = "<span style='color: green'>More 3</span>"
                     }
-
-                    console.log('success')
                     $('.modal-title').html("<h4>Form: " + data.client_name + "</h4>")
 
                     $('.modal-body').html(
@@ -142,14 +137,12 @@ jQuery(document).ready(function ($) {
 
             let str_id = element.attr('id');
             let id = str_id.split('-')[1];
-            console.log(id)
 
             if (id) {
                 $.ajax({
                     url: 'https://api.codeberrysolutions.com/estimations/' + id,
                     type: 'DELETE',
                     success: function (result) {
-                        console.log(result)
                         location.reload();
                         alert('delete success!')
                     }
