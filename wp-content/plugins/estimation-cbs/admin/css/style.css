@@ -1,0 +1,62 @@
+h1,h2,h3,h4,h5,h6 {
+    color: #040444;
+}
+hr {
+    height:2px;
+    border-width:0;
+    color:#040444;
+    background-color:#040444;
+}
+.estimate-text{
+    color: black;
+}
+
+.form-view-icon{
+    text-decoration: none !important;
+    color:#D42043FF;
+}
+
+.form-delete-icon{
+    text-decoration: none !important;
+    color:#D42043FF;
+}
+.modal-content{
+    font-size: medium;
+    font-weight: bold;
+}
+.form-view{
+    display: inline-block;
+}
+
+.form-delete{
+    display: inline-block;
+}
+
+.estimate-button {
+    color: grey !important;
+    border-radius: 6px;
+    font-size: 14px !important;
+    border: 1px #D42043 solid !important;
+    background-color: white !important;
+    padding: 0.7rem !important;
+    min-width: 100px;
+    font-weight: bold;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-top: 0.5rem;
+
+}
+.estimate-button.active {
+    color: #040444 !important;
+    background-image: linear-gradient(#D42043,white) !important;
+}
+.estimate-button:hover {
+    color: #040444 !important;
+    background-image: linear-gradient(#D42043,white);
+}
+@media (min-width: 576px){
+    .modal-dialog {
+        max-width: 750px;
+        margin: 1.75rem auto;
+    }
+}
